@@ -1,0 +1,712 @@
+# Policy-to-Procedure Generator
+
+> **Transform complex organizational policies into clear, actionable, and traceable Standard Operating Procedures (SOPs).**
+
+Policy-to-Procedure Generator is an enterprise-oriented document intelligence platform that converts lengthy and ambiguous organizational policy documents into **step-by-step procedures, execution checklists, and role-specific instructions** while preserving compliance requirements and providing source-clause traceability.
+
+The platform uses **Google Gemini AI** to analyze policy documents, identify actionable requirements, and generate structured procedures grounded in the original policy text.
+
+---
+
+## ✨ Features
+
+* 📄 **Multi-Format Document Ingestion**
+
+  * PDF
+  * DOCX
+  * TXT
+
+* 🤖 **AI-Powered Procedural Synthesis**
+
+  * Converts complex policy language into actionable instructions
+  * Uses Google Gemini for intelligent document analysis
+  * Reduces passive and ambiguous language
+  * Preserves important business and compliance constraints
+
+* 🔎 **Clause-Level Citation Grounding**
+
+  * Every generated action can be linked back to its source clause
+  * Example: `[Sec 3.2]`
+  * Improves auditability and compliance traceability
+
+* 👥 **Role-Based Procedures**
+
+  * General Staff
+  * Managers
+  * Technical Support
+  * System Administrators
+
+* 🌓 **Dual-Pane Document Viewer**
+
+  * View original policy clauses alongside generated procedures
+  * Easily compare source requirements with actionable instructions
+
+* 📋 **Multiple Output Formats**
+
+  * Step-by-Step SOP
+  * Interactive Checklist
+  * Structured Markdown
+
+* 🔄 **Interactive Processing Pipeline**
+
+  * Document Parsing
+  * Semantic Chunking
+  * AI Synthesis
+  * Procedure Generation
+
+* 📤 **Export Utilities**
+
+  * Export procedures to PDF
+  * Copy generated Markdown
+  * Use interactive checklists
+
+* 📚 **Procedure History**
+
+  * Access previously processed policies
+  * Maintain a convenient workspace for generated procedures
+
+---
+
+# 🏗️ Architecture
+
+```text
+┌──────────────────────────┐
+│     Policy Document      │
+│      PDF / DOCX / TXT    │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│  1. Document Ingestion   │
+│  Parse & Extract Text    │
+│  Preserve Clause Numbers │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│  2. Semantic Chunking    │
+│  Structure Policy Into   │
+│  Meaningful Sections     │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│  3. Gemini AI Synthesis  │
+│  Extract:                │
+│  • Prerequisites         │
+│  • Roles                 │
+│  • Action Steps          │
+│  • Source References     │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│  4. Procedure Generation │
+│  SOP / Checklist         │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│  Dual-Pane Viewer        │
+│                          │
+│  Source Clause ↔ SOP     │
+└──────────────────────────┘
+```
+
+---
+
+# 🔄 Processing Pipeline
+
+The application processes policy documents through four major stages.
+
+### 1. Document Ingestion
+
+Uploaded policy documents are parsed to extract their raw content while preserving:
+
+* Clause numbers
+* Section headings
+* Subsections
+* Organizational hierarchy
+* Relevant policy terminology
+
+Supported formats:
+
+```text
+PDF
+DOCX
+TXT
+```
+
+---
+
+### 2. Semantic Chunking
+
+The extracted policy text is divided into meaningful semantic sections.
+
+The system attempts to preserve relationships between:
+
+* Sections
+* Subsections
+* Requirements
+* Exceptions
+* Roles
+* Responsibilities
+* Compliance constraints
+
+This structured representation is then passed to the AI synthesis layer.
+
+---
+
+### 3. AI Procedural Synthesis
+
+Google Gemini analyzes the structured policy content and transforms policy requirements into actionable procedures.
+
+The synthesis process extracts:
+
+```text
+Prerequisites
+      ↓
+Responsible Role
+      ↓
+Required Action
+      ↓
+Expected Outcome
+      ↓
+Source Clause
+```
+
+The generated instructions are designed to use clear, imperative language rather than passive or ambiguous policy wording.
+
+Example:
+
+**Policy Language**
+
+> Employees must ensure that access credentials are periodically reviewed in accordance with the organization's access control requirements.
+
+**Generated Procedure**
+
+```text
+1. Review active user accounts.
+2. Identify accounts that no longer require access.
+3. Remove or disable unnecessary access.
+4. Document the review.
+5. [Sec 3.2]
+```
+
+---
+
+### 4. Citation Grounding
+
+Each generated procedure is associated with its originating policy clause.
+
+Example:
+
+```text
+Step 1: Review all active accounts. [Sec 3.2]
+
+Step 2: Identify accounts that no longer require access. [Sec 3.2]
+
+Step 3: Disable unnecessary accounts. [Sec 3.3]
+```
+
+This provides a traceable relationship between:
+
+```text
+Policy Requirement
+        ↓
+Source Clause
+        ↓
+Generated Action
+```
+
+This is particularly useful for auditing, compliance reviews, and organizational governance.
+
+---
+
+# 🖥️ User Interface
+
+The application provides a dual-pane workspace.
+
+```text
+┌─────────────────────────────┬─────────────────────────────┐
+│                             │                             │
+│       SOURCE POLICY         │      GENERATED PROCEDURE    │
+│                             │                             │
+│  Section 3.2                │  Step 1                    │
+│  Access Control             │  Review active accounts    │
+│                             │  [Sec 3.2]                 │
+│  Organizations must...      │                             │
+│                             │  Step 2                    │
+│                             │  Identify unnecessary       │
+│                             │  access. [Sec 3.2]          │
+│                             │                             │
+└─────────────────────────────┴─────────────────────────────┘
+```
+
+Users can switch between:
+
+* **Step-by-Step SOP**
+* **Checklist**
+
+depending on how the procedure needs to be executed.
+
+---
+
+# 👥 Audience Adaptation
+
+Procedures can be adapted according to the intended audience.
+
+| Audience              | Example Use                          |
+| --------------------- | ------------------------------------ |
+| General Staff         | Everyday operational procedures      |
+| Managers              | Approval and supervisory workflows   |
+| Technical Support     | IT support procedures                |
+| System Administrators | Infrastructure and system operations |
+
+This allows the same underlying policy to produce different operational instructions depending on the user's responsibilities.
+
+---
+
+# 🛠️ Tech Stack
+
+| Layer            | Technology                 |
+| ---------------- | -------------------------- |
+| Frontend         | React 18                   |
+| Build Tool       | Vite                       |
+| Styling          | Tailwind CSS               |
+| Icons            | Lucide React               |
+| AI / LLM         | Google Gemini              |
+| AI SDK           | `@google/genai`            |
+| Authentication   | Firebase Authentication    |
+| OAuth            | Google Login + Apple Login |
+| Hosting          | AWS EC2                    |
+| Operating System | Ubuntu                     |
+| Web Server       | Nginx                      |
+| SSL              | Let's Encrypt / Certbot    |
+
+---
+
+# 📁 Project Structure
+
+A typical project structure looks like:
+
+```text
+Policy-to-Procedure-Generator/
+│
+├── public/
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── utils/
+│   ├── hooks/
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── .env
+├── package.json
+├── vite.config.js
+├── tailwind.config.js
+└── README.md
+```
+
+> The exact structure may vary depending on the current implementation of the repository.
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+Make sure the following are installed:
+
+* Node.js `18.0.0` or higher
+* npm or Yarn
+* Google AI Studio API key
+
+---
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/urjithatalluru-2006/Policy-to-Procedure-Generator.git
+```
+
+Navigate into the project:
+
+```bash
+cd Policy-to-Procedure-Generator
+```
+
+---
+
+## 2. Install Dependencies
+
+Using npm:
+
+```bash
+npm install
+```
+
+Or using Yarn:
+
+```bash
+yarn install
+```
+
+---
+
+## 3. Configure Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+VITE_GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+Replace:
+
+```text
+your_gemini_api_key_here
+```
+
+with your Google AI Studio API key.
+
+### ⚠️ Security Note
+
+Never commit your `.env` file or expose API keys in source control.
+
+Make sure `.env` is included in `.gitignore`:
+
+```gitignore
+.env
+.env.local
+```
+
+---
+
+## 4. Start the Development Server
+
+Run:
+
+```bash
+npm run dev
+```
+
+Vite will start the local development server.
+
+Open:
+
+```text
+http://localhost:5173/
+```
+
+in your browser.
+
+---
+
+# 🏭 Production Deployment
+
+The production architecture is designed around an AWS EC2 deployment.
+
+```text
+                    Internet
+                       │
+                       ▼
+                ┌─────────────┐
+                │   HTTPS     │
+                │ Let's Encrypt│
+                └──────┬──────┘
+                       │
+                       ▼
+                ┌─────────────┐
+                │    Nginx    │
+                │ Reverse     │
+                │ Proxy       │
+                └──────┬──────┘
+                       │
+                       ▼
+                ┌─────────────┐
+                │ AWS EC2     │
+                │ Ubuntu      │
+                └──────┬──────┘
+                       │
+                       ▼
+                ┌─────────────┐
+                │ Vite Build  │
+                │ Application  │
+                └─────────────┘
+```
+
+### Production Components
+
+#### AWS EC2
+
+Hosts the production application on an Ubuntu server.
+
+#### Nginx
+
+Acts as the web server and reverse proxy.
+
+#### HTTPS
+
+SSL/TLS certificates are managed using:
+
+```text
+Let's Encrypt
+        +
+Certbot
+```
+
+#### Firebase Authentication
+
+Authentication is designed to support:
+
+* Google Sign-In
+* Apple Sign-In
+
+---
+
+# 🔐 Security Considerations
+
+Because this application processes potentially sensitive organizational policies, security is an important consideration.
+
+Recommended practices include:
+
+* Never commit API keys to Git
+* Store production secrets in environment variables
+* Enable HTTPS in production
+* Restrict access to the EC2 instance
+* Configure Firebase authentication domains correctly
+* Use secure authentication flows
+* Apply appropriate IAM and server permissions
+* Avoid logging sensitive policy content unnecessarily
+* Validate uploaded documents before processing
+
+---
+
+# 📋 Example Workflow
+
+A typical user workflow looks like this:
+
+```text
+1. Upload Policy
+       │
+       ▼
+2. Document Parsing
+       │
+       ▼
+3. Clause Extraction
+       │
+       ▼
+4. Semantic Chunking
+       │
+       ▼
+5. Gemini AI Analysis
+       │
+       ▼
+6. Procedure Generation
+       │
+       ▼
+7. Clause Citation
+       │
+       ▼
+8. Review in Dual-Pane Viewer
+       │
+       ▼
+9. Select SOP / Checklist
+       │
+       ▼
+10. Export / Copy
+```
+
+---
+
+# 📄 Supported Output
+
+## Step-by-Step SOP
+
+Example:
+
+```text
+Procedure: Employee Access Review
+
+Role: System Administrator
+
+Prerequisites:
+- Administrative access
+- Current user account list
+
+Steps:
+
+1. Review the current list of active accounts. [Sec 3.2]
+
+2. Identify accounts that are no longer required. [Sec 3.2]
+
+3. Disable unnecessary accounts. [Sec 3.3]
+
+4. Record the completed review. [Sec 3.4]
+```
+
+---
+
+## Checklist
+
+Example:
+
+```text
+☐ Review active user accounts
+☐ Identify unnecessary accounts
+☐ Disable unnecessary accounts
+☐ Record the access review
+```
+
+Each actionable item can retain its source reference for traceability.
+
+---
+
+# 🎯 Design Goals
+
+The project focuses on four primary goals:
+
+### Clarity
+
+Convert difficult policy language into instructions that employees can understand and execute.
+
+### Traceability
+
+Maintain a direct connection between generated procedures and the original policy clauses.
+
+### Compliance
+
+Preserve policy constraints, requirements, exceptions, and organizational rules during transformation.
+
+### Usability
+
+Provide an intuitive interface for reviewing, editing, and executing generated procedures.
+
+---
+
+# 🗺️ Roadmap
+
+## Completed
+
+* [x] Responsive dual-pane interface
+* [x] Sidebar procedure history
+* [x] Google Gemini integration
+* [x] Structured procedure generation
+* [x] Step-by-Step SOP mode
+* [x] Checklist mode
+* [x] Source clause citations
+* [x] Role-based procedure generation
+* [x] Multi-format document ingestion
+
+## In Progress
+
+* [ ] Firebase Authentication
+* [ ] Google Sign-In
+* [ ] Apple Sign-In
+* [ ] Production AWS EC2 deployment
+* [ ] HTTPS configuration
+
+## Future Improvements
+
+* [ ] Advanced policy version comparison
+* [ ] Improved clause-level retrieval
+* [ ] Policy change detection
+* [ ] Procedure version history
+* [ ] Collaborative review workflows
+* [ ] Approval and sign-off workflows
+* [ ] Organization-level workspaces
+* [ ] Advanced audit logging
+* [ ] More document formats
+* [ ] Fine-grained permissions and roles
+
+---
+
+# 🤖 AI Processing Philosophy
+
+The AI layer is designed to **transform policy language rather than invent policy requirements**.
+
+The generated procedure should:
+
+* Preserve explicit requirements
+* Preserve important restrictions
+* Preserve exceptions
+* Preserve role responsibilities
+* Reference the originating policy clause
+* Avoid introducing unsupported requirements
+* Convert passive language into actionable instructions
+* Clearly distinguish required actions from contextual information
+
+The original policy remains the authoritative source.
+
+---
+
+# ⚠️ Disclaimer
+
+The Policy-to-Procedure Generator is an AI-assisted document transformation system.
+
+Generated procedures should be **reviewed by an appropriate policy owner, compliance officer, manager, or subject-matter expert before being used as an authoritative operational procedure**.
+
+AI-generated output may contain inaccuracies or interpretations that require human validation.
+
+---
+
+# 🤝 Contributing
+
+Contributions, suggestions, and improvements are welcome.
+
+To contribute:
+
+```bash
+git clone https://github.com/urjithatalluru-2006/Policy-to-Procedure-Generator.git
+cd Policy-to-Procedure-Generator
+npm install
+```
+
+Create a new branch:
+
+```bash
+git checkout -b feature/your-feature-name
+```
+
+Make your changes, test them locally, and submit a pull request.
+
+---
+
+# 📜 License
+
+Add your project's license information here.
+
+For example:
+
+```text
+MIT License
+```
+
+if the project is released under the MIT License.
+
+---
+
+# 👨‍💻 Author
+
+**Urjith Atalluru**
+
+GitHub:
+https://github.com/urjithatalluru-2006
+
+---
+
+# ⭐ Support
+
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
+
+---
+
+## 🔗 Repository
+
+**Policy-to-Procedure Generator**
+
+https://github.com/urjithatalluru-2006/Policy-to-Procedure-Generator
